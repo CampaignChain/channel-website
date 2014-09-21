@@ -1,0 +1,18 @@
+{
+    "name": "campaignchain/channel-website",
+    "description": "Connect with a Website.",
+    "keywords": ["website"],
+    "type": "campaignchain-channel",
+    "homepage": "http://www.campaignchain.com",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Sandro Groganz",
+            "email": "sandro@campaignchain.com"
+        }
+    ],
+    "require": {
+        "campaignchain/core": "dev-master",
+        "guzzle/guzzle":"dev-master"
+    }
+}

@@ -1,0 +1,7 @@
+campaignchain_channel_website_new:
+    pattern:  /channel/website/new
+    defaults: { _controller: CampaignChainChannelWebsiteBundle:Website:new }
+
+campaignchain_channel_website_page_new:
+    pattern:  /channel/website/{id}/page/new
+    defaults: { _controller: CampaignChainChannelWebsiteBundle:Website:newPage }
