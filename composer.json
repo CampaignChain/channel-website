@@ -13,7 +13,7 @@
     ],
     "require": {
         "campaignchain/core": "1.0.0-alpha.1",
-        "guzzle/guzzle":"~3.9"
+        "guzzle/guzzle":"~3.7"
     },
     "autoload": {
         "psr-4": { "CampaignChain\\Channel\\WebsiteBundle\\": "" }
