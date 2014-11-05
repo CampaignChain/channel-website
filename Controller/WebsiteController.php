@@ -45,13 +45,19 @@ class WebsiteController extends Controller
             $location->setLocationModule($locationModule);
             $location->setName($locationName);
             $location->setUrl($locationURL);
-            $location->setImage(
-                $this->container->get('templating.helper.assets')
+
+            // Get the Website's favicon as Channel image if possible.
+            $favicon = ParserUtil::getFavicon($locationURL);
+            if($favicon){
+                $locationImage = $favicon;
+            } else {
+                $locationImage = $this->container->get('templating.helper.assets')
                     ->getUrl(
                         'bundles/campaignchainlocationwebsite/images/icons/256x256/website.png',
                         null
-                    )
-            );
+                    );
+            }
+            $location->setImage($locationImage);
 
             $wizard = $this->get('campaignchain.core.channel.wizard');
             $wizard->setName($location->getName());
