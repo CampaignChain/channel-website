@@ -29,7 +29,6 @@ class WebsiteController extends Controller
             ->add('URL', 'url', array(
                 'label' => 'Website URL',
             ))
-            ->add('save', 'submit', ['label' => 'Save'])
             ->getForm();
 
         $form->handleRequest($request);
@@ -99,7 +98,6 @@ class WebsiteController extends Controller
                     'delete_button_text' => 'Delete URL',
                 'attr' => array('help_text' => 'Add URLs to various pages within the Website.')
             ))
-            ->add('save', 'submit', ['label' => 'Save all'])
             ->getForm();
 
         $form->handleRequest($request);
@@ -173,8 +171,9 @@ class WebsiteController extends Controller
         return $this->render(
             'CampaignChainCoreBundle:Location:new.html.twig',
             array(
-                'page_title' => 'Add Website Page',
+                'page_title' => 'Add Website Pages',
                 'form' => $form->createView(),
+                'form_submit_label' => 'Save',
                 'location' => $website,
             ));
     }
