@@ -12,3 +12,5 @@ modules:
             new: campaignchain_channel_website_new
         hooks:
             campaignchain-assignee: true
+        params:
+            cta_tracking: true
