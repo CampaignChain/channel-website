@@ -17,5 +17,20 @@
     },
     "autoload": {
         "psr-4": { "CampaignChain\\Channel\\WebsiteBundle\\": "" }
+    },
+    "extra": {
+        "campaignchain": {
+            "kernel": {
+                "classes": [
+                    "CampaignChain\\Channel\\WebsiteBundle\\CampaignChainChannelWebsiteBundle"
+                ],
+                "routing":
+                {
+                    "name": "campaignchain_channel_website",
+                    "resource": "@CampaignChainChannelWebsiteBundle/Resources/config/routing.yml",
+                    "prefix": "/"
+                }
+            }
+        }
     }
 }
