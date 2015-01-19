@@ -12,7 +12,11 @@
         }
     ],
     "require": {
+<<<<<<< HEAD
         "campaignchain/core": "dev-master",
+=======
+        "campaignchain/core": "dev-master",
+>>>>>>> 1.0.0-alpha.4
         "guzzle/guzzle":"dev-master"
     },
     "autoload": {
