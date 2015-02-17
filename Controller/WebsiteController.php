@@ -50,11 +50,12 @@ class WebsiteController extends Controller
             if($favicon){
                 $locationImage = $favicon;
             } else {
-                $locationImage = $this->container->get('templating.helper.assets')
-                    ->getUrl(
-                        'bundles/campaignchainlocationwebsite/images/icons/256x256/website.png',
-                        null
-                    );
+//                $locationImage = $this->container->get('templating.helper.assets')
+//                    ->getUrl(
+//                        'bundles/campaignchainlocationwebsite/images/icons/256x256/website.png',
+//                        null
+//                    );
+                $locationImage = null;
             }
             $location->setImage($locationImage);
 
