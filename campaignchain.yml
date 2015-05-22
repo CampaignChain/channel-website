@@ -11,6 +11,7 @@ modules:
         routes:
             new: campaignchain_channel_website_new
         hooks:
-            campaignchain-assignee: true
+            default:
+                campaignchain-assignee: true
         params:
             cta_tracking: true
