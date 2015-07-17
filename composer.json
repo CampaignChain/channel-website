@@ -1,7 +1,7 @@
 {
     "name": "campaignchain/channel-website",
     "description": "Connect with a Website.",
-    "keywords": ["website"],
+    "keywords": ["website","campaignchain"],
     "type": "campaignchain-channel",
     "homepage": "http://www.campaignchain.com",
     "license": "Apache-2.0",
