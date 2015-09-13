@@ -1,4 +1,7 @@
-channel-website
-===============
+Website Channel Module
+======================
 
-Connect with a Website
+Connect to a Website.
+
+This module is part of the CampaignChain Community Edition. Look here for
+installation instructions: https://github.com/CampaignChain/campaignchain-ce
