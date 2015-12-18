@@ -63,11 +63,20 @@ class WebsiteController extends Controller
             $wizard->setName($location->getName());
             $wizard->addLocation($location->getUrl(), $location);
             $channel = $wizard->persist();
+            $this->get('session')->getFlashBag()->add(
+                'success',
+                "The Website '".$location->getUrl()."' has been connected."
+            );
             $wizard->end();
 
+
+
+
+            //return $this->redirect($this->generateUrl(
+              //  'campaignchain_channel_website_page_new',
+                //array('id' => $channel->getLocations()[0]->getId())));
             return $this->redirect($this->generateUrl(
-                'campaignchain_channel_website_page_new',
-                array('id' => $channel->getLocations()[0]->getId())));
+                'campaignchain_core_channel'));
         }
 
         return $this->render(
@@ -78,7 +87,7 @@ class WebsiteController extends Controller
             ));
     }
 
-    public function newPageAction(Request $request, $id)
+/*    public function newPageAction(Request $request, $id)
     {
         $website = $this->getDoctrine()
             ->getRepository('CampaignChainCoreBundle:Location')
@@ -177,5 +186,5 @@ class WebsiteController extends Controller
                 'form_submit_label' => 'Save',
                 'location' => $website,
             ));
-    }
+    }*/
 }
