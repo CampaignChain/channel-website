@@ -69,12 +69,12 @@ class WebsiteController extends Controller
                 try {
                     $channel = $wizard->persist();
                     $wizard->end();
-                    return $this->redirect($this->generateUrl(
-                        'campaignchain_core_channel'));
                     $this->get('session')->getFlashBag()->add(
                         'success',
                         "The Website '" . $location->getUrl() . "' has been connected."
                     );
+                    return $this->redirect($this->generateUrl(
+                        'campaignchain_core_channel'));
 
 
                 } catch(\Exception $e) {
