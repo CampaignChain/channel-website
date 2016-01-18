@@ -36,7 +36,6 @@ class WebsiteController extends Controller
         if ($form->isValid()) {
             $locationURL = $form->getData()['URL'];
             $locationName = ParserUtil::getHTMLTitle($locationURL, $locationURL);
-
             $locationService = $this->get('campaignchain.core.location');
             $locationModule = $locationService->getLocationModule('campaignchain/location-website', 'campaignchain-website');
 
@@ -61,13 +60,37 @@ class WebsiteController extends Controller
 
             $wizard = $this->get('campaignchain.core.channel.wizard');
             $wizard->setName($location->getName());
-            $wizard->addLocation($location->getUrl(), $location);
-            $channel = $wizard->persist();
-            $this->get('session')->getFlashBag()->add(
-                'success',
-                "The Website '".$location->getUrl()."' has been connected."
-            );
-            $wizard->end();
+
+            $repository = $this->getDoctrine()
+                ->getRepository('CampaignChainCoreBundle:Location');
+            if(!$repository->findBy(array('url' => $location->getUrl())))
+            {
+                $wizard->addLocation($location->getUrl(), $location);
+                try {
+                    $channel = $wizard->persist();
+                    $wizard->end();
+                    $this->get('session')->getFlashBag()->add(
+                        'success',
+                        "The Website '" . $location->getUrl() . "' has been connected."
+                    );
+                    return $this->redirect($this->generateUrl(
+                        'campaignchain_core_channel'));
+
+
+                } catch(\Exception $e) {
+                    $this->addFlash('warning',
+                        "An error occured during the creation of the website location");
+                    $this->get('logger')->addError($e->getMessage());
+                }
+            }
+            else{
+                $this->addFlash('warning',
+                    "The website  '" . $location->getUrl() . "' already exists.");
+            }
+            }
+
+
+
 
 
 
@@ -75,9 +98,8 @@ class WebsiteController extends Controller
             //return $this->redirect($this->generateUrl(
               //  'campaignchain_channel_website_page_new',
                 //array('id' => $channel->getLocations()[0]->getId())));
-            return $this->redirect($this->generateUrl(
-                'campaignchain_core_channel'));
-        }
+
+
 
         return $this->render(
             'CampaignChainCoreBundle:Base:new.html.twig',
