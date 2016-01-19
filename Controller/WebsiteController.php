@@ -28,7 +28,11 @@ class WebsiteController extends Controller
         $form = $this->createFormBuilder()
             ->add('URL', 'url', array(
                 'label' => 'Website URL',
-            ))
+                'constraints' => array(
+                    new Url(array(
+                        'checkDNS'  => true,
+                    )),
+                )))
             ->getForm();
 
         $form->handleRequest($request);
