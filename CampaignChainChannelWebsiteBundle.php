@@ -17,8 +17,13 @@
 
 namespace CampaignChain\Channel\WebsiteBundle;
 
+use CampaignChain\Channel\WebsiteBundle\DependencyInjection\CampaignChainChannelWebsiteExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class CampaignChainChannelWebsiteBundle extends Bundle
 {
+    public function getContainerExtension()
+    {
+        return new CampaignChainChannelWebsiteExtension();
+    }
 }
