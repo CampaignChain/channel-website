@@ -85,7 +85,7 @@ class WebsiteController extends Controller
                         "The Website '" . $location->getUrl() . "' has been connected."
                     );
                     return $this->redirect($this->generateUrl(
-                        'campaignchain_core_channel'));
+                        'campaignchain_core_location'));
 
 
                 } catch(\Exception $e) {
@@ -208,7 +208,7 @@ class WebsiteController extends Controller
             }
 
             return $this->redirect($this->generateUrl(
-                'campaignchain_core_channel'));
+                'campaignchain_core_location'));
         }
 
         return $this->render(
